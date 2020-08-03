@@ -1,0 +1,135 @@
+$primary : #00161D;
+$secondary : #28353D;
+$success : #67C6D4;
+$danger:#D13D7E;
+$info:#619EE2;
+
+@import '~bootstrap/scss/bootstrap.scss';
+body{
+  background: $primary;
+}
+.container{
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+.logo{
+  width: 165px;
+}
+.button-area{
+  font-family: Arial Black;
+width: 800px;
+  a{
+  margin: 6px;
+  }
+}
+.topbtn-active{
+  color: $secondary;
+  background: white;
+  &:hover{
+    background: $secondary;
+  }
+}
+
+.history-title{
+  color: white;
+  background: $primary;
+  border: 1px solid $secondary;
+  padding: 5px;
+  .name{
+    font-family: Arial;
+    font-size: 12pt;
+    line-height: 21pt;
+    margin: 0;
+  }
+  .date{
+    font-family: Arial Black;
+    font-size: 15pt;
+    line-height: 25pt;
+    margin: 0;
+
+  }
+}
+.history-content{
+  background: $secondary;
+  // padding: 10px;
+  font-size: 27px;
+  .left-img{    
+    width: 90px;
+    height: 93px;
+    border: 1px solid $success;
+    position: relative;
+    color:$success;
+    margin: 10px;
+    
+  }
+  .right-img{    
+    width: 90px;
+    height: 93px;
+    border: 1px solid $info;
+    position: relative;
+    color:$info;
+    margin: 10px;
+  }
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  span{
+    width: 100%;
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+}
+
+.xray-img{
+  width: 380px;
+  height: 394px;
+  object-fit: cover;
+}
+.xray-img.active{
+ border: 1px solid $danger;
+}
+
+.chart{
+  width: 100%;
+  height: 395px;
+  border-bottom: 1px solid $info;
+
+}
+
+.chart-btn{
+  width: 84px;
+  height: 44px;
+  font-size: 10pt;
+  padding: 0;
+  margin-bottom: 5px;
+}
+.chart-tag{
+  width: 84px;
+  height: 116px;
+  border: 1px solid white;
+  border-radius: 10px;
+  color: white;
+}
+.chart-line{
+  width: 300px;
+  height: 100%;
+  overflow-y:hidden;
+  overflow-x:auto;
+}
+.chart-line img{
+  height: 395px;
+}
+
+.footer {
+    background-color: grey;
+}
+.completed{
+  font-style: italic;
+  color: #bbb;
+  text-decoration: line-through;
+}
