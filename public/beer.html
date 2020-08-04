@@ -1,0 +1,131 @@
+  
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Beer</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        @keyframes uplift {
+            from {
+                transform: scaleY(0);
+            }
+
+            to {
+                transform: scaleY(1);
+            }
+        }
+        @keyframes appear {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes gohorizen {
+            0% {
+                transform: translate(-25%, -60%);
+            }
+
+            50% {
+                transform: translate(-50%, -68%);
+            }
+
+            100% {
+                transform: translate(-75%, -60%);
+            }
+        }
+        body{
+
+            background: rgb(255, 217, 0);
+        }
+
+        #container {
+            width: 400px;
+            height: 600px;
+            position: relative;
+            /* border: 1px solid #fff; */
+            margin: 10px auto;
+            overflow: hidden;
+            background: linear-gradient(to bottom, #ffffff 31%, #ff9e30 63%, #ffe100 100%);
+            animation: uplift 3s;
+            transform-origin: bottom left;
+            transition: 1s;
+        }
+
+        .wave {
+
+            position: absolute;
+            left: 50%;
+            bottom: 68px;
+            animation: gohorizen 5s linear 1.5s infinite,appear 2s linear;
+            display: flex;
+            opacity: 1;
+            transition: gohorizen 3s 3s,appear .5s  ;
+
+        }
+
+        .wave p {
+            background: rgb(255, 217, 0);
+            border-bottom-left-radius: 50% 2%;
+            border-bottom-right-radius: 50% 2%;
+            width: 500px;
+            height: 700px;
+        }
+
+        .glass {
+            position: fixed;
+            left: 0;
+            top: 0;
+            /*             width: 400px; 111*/
+            height: 900px;
+
+            margin: 10px auto;
+        }
+
+        .glass img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .glass p{
+            position: fixed;
+            left: 50%;
+            top: 10vh;
+            background: linear-gradient(to bottom, #ffffff 31%, #ff9e30 63%, #da130c 100%);
+            width: 10px;
+            height: 700px;
+            animation: name duration timing-function delay iteration-count direction fill-mode;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="glass">
+        <p></p>
+      </div>
+    <div id="container">
+        <div class="wave">
+            <p></p>
+            <p></p>
+
+        </div>
+    </div>
+
+    <div class="glass">
+      <img src="https://raw.githubusercontent.com/ccwang116/Product_demo_ScrollAnimation/3b0417f43b901cd5c380287fda4c30b0e2c3d6f2/images/glass-for-web.svg" alt="">
+    </div>
+</body>
+
+</html>
