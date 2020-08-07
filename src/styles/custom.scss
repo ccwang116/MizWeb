@@ -133,3 +133,11 @@ width: 800px;
   color: #bbb;
   text-decoration: line-through;
 }
+@import "./mixins";
+
+.eWalletContainer {
+  @include flexBlock(flex-start, space-between);
+  width: 1129px;
+  margin-left: auto;
+  margin-right: auto;
+}
