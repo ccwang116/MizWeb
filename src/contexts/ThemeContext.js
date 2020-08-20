@@ -1,5 +1,5 @@
 import React, { createContext,Component } from 'react';
-export const ThemeContext = createContext();
+export const ThemeContexts = createContext();
 
 class ThemeContext extends Component {
     state = {
@@ -13,9 +13,9 @@ class ThemeContext extends Component {
     // }
     render() {
         return (
-            <ThemeContext.Provider value={{...this.state}}>
+            <ThemeContexts.Provider value={{...this.state}}>
                     {this.props.children}
-            </ThemeContext.Provider>
+            </ThemeContexts.Provider>
             
         );
     }

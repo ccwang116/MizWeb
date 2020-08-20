@@ -1,17 +1,19 @@
 import React from 'react'
-import { Link, withRouter } from 'react-router-dom'
 
 
 function Home(props) {
   //console.log(props)
+  
   return (
     <>
       
       <div className="mt-5">
-        Home
+        <h1>123</h1>
+        <p>22233344</p>
+
       </div>
     </>
   )
 }
 
-export default withRouter(Home)
+export default Home

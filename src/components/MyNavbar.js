@@ -1,17 +1,17 @@
 import React from "react";
 import { Navbar, Nav, Button } from "react-bootstrap";
 import { Link, NavLink, withRouter } from "react-router-dom";
-import { ThemeContext } from "../contexts/ThemeContext";
+import { ThemeContexts } from "../contexts/ThemeContext";
 import context from "react-bootstrap/esm/AccordionContext";
 
 function MyNavbar() {
-  const contextType = ThemeContext
+  const contextType = ThemeContexts
   console.log(context)
   const { isLightThme, light, dark } = context
   const theme = isLightThme ? light : dark;
   return (
     <>
-      <ThemeContext.Consumer>{(context) => {
+      <ThemeContexts.Consumer>{(context) => {
         return (
           <Navbar
             className="justify-content-between"
@@ -42,11 +42,14 @@ function MyNavbar() {
               <Nav.Link as={NavLink} to="/productlist">
                 Sign Up
           </Nav.Link>
+          <Nav.Link as={NavLink} to="/about">
+                About
+          </Nav.Link>
             </Nav>
           </Navbar>
         )
       }}
-      </ThemeContext.Consumer>
+      </ThemeContexts.Consumer>
     </>
   );
 }

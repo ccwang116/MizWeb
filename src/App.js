@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import MyNavbar from './components/MyNavbar'
 import MyFooter from './components/MyFooter'
 import MainContent from './components/MainContent'
-
+import About from "./pages/About";
 
 
 import NotFoundPage from './pages/NotFoundPage'
@@ -22,6 +22,9 @@ function App(props) {
 
             <Route exact path="/">
               <UserForm />
+            </Route>
+            <Route exact path="/about">
+              <About />
             </Route>
             <Route exact path="*">
               <NotFoundPage />
