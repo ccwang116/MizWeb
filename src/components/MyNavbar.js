@@ -35,12 +35,12 @@ function MyNavbar() {
             <div className="button-area d-flex">
               <Link className="flex-fill" to="/analysis">
                 <Button className="w-100 bg-secondary" >
-                  <i className="fas fa-clipboard-check mr-2"></i>單次分析
+                  <i className="fas fa-clipboard-check mr-2"></i>A按鈕
                 </Button>
               </Link>
               <Link className="flex-fill" to="/chronic">
                 <Button className="w-100 topbtn-active" >
-                  <i className="fas fa-chart-line mr-2"></i>Chronic
+                  <i className="fas fa-chart-line mr-2"></i>B按鈕
                 </Button>
               </Link>
             </div>
@@ -56,6 +56,9 @@ function MyNavbar() {
               </Nav.Link>
               <Nav.Link as={NavLink} to="/about">
                 About
+              </Nav.Link>
+              <Nav.Link as={NavLink} to="/pokemon">
+                Pokemon
               </Nav.Link>
               <Button className={classes.titleInner} onClick={(e)=>{handleCardShow('stage',0,e)}}>
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Arrow_icon.svg/1200px-Arrow_icon.svg.png"alt=""  />
