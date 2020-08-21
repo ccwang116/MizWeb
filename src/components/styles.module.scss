@@ -1,0 +1,46 @@
+
+
+.titleInner {
+    width: 180px;
+    height: 20px;
+    justify-content: space-between;
+    font-size: 16px;
+    font-weight: 700;
+    font-style: italic;
+    color: #01bde2;
+    position: relative;
+    cursor: pointer;
+    img {
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 4px;
+        right: 0;
+        transition: .7s;
+    }
+    &:after {
+        content: "";
+        display: block;
+        height: 4px;
+        margin-top: 4px;
+        background-image: linear-gradient(to right, #0073e6, #00ccaa), linear-gradient(to bottom, #00e6ac, #00e6ac);
+    }
+}
+
+button {
+    margin: 16px auto 16px auto;
+}
+button.disable {
+    display: none !important;
+}
+
+
+.show{
+    display: block !important;
+}
+
+.imgRotate{
+    img{
+        transform: rotate(180deg);
+    }
+}
