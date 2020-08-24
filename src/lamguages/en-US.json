@@ -1,0 +1,5 @@
+{
+    "app.header": "Edit <code>{filename}</code> Hello",
+    "app.content": "Good morning",
+    "app.channel.plug":"Good night{nickname}"
+}
