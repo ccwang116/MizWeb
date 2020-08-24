@@ -1,14 +1,18 @@
-import React,{useContext} from 'react';
+import React,{ useContext } from 'react';
 import { FormattedMessage, FormattedDate } from "react-intl";
-import { Context } from "../components/Wrapper";
+import Wrapper from "../components/Wrapper";
+import WrapperConsumer from "../components/WrapperConsumer";
 
 import { propTypes } from 'react-bootstrap/esm/Image';
-function intlHome(props) {
-    const context = useContext(Context)
+
+function IntlHome(props) {
+    const {localInfo} = props
+    const {locale, selectLang} = localInfo
+
     return(
         <>
         <h1>hello,this is home page</h1>
-        <select value={context.locale} onChange={context.selectLang}>
+        <select value={locale} onChange={selectLang}>
             <option value="en-US">Eng</option>
             <option value="es-MX">Spa</option>
         </select>
@@ -40,4 +44,4 @@ function intlHome(props) {
     )
 }
 
-export default intlHome;
+export default Wrapper(WrapperConsumer(IntlHome));
