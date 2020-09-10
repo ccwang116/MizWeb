@@ -37,4 +37,27 @@ const goTop = () => {
             left : 0,
             behavior : 'smooth'
         })
+}
+
+//Click按鈕展開
+contentBox.current = document.getElementById("scrollCapture");
+const fixposition = (e)=>{
+
+    if(contentBox.current){
+        heightNow.current = contentBox.current.scrollTop;
     }
+
+    const pageY = e.nativeEvent.pageY;
+    const pageX = e.nativeEvent.pageX;
+
+    if(e.target.tagName.toLowerCase()==="div"||e.target.tagName.toLowerCase()==="svg"||e.target.tagName.toLowerCase()==="path"){
+        setTimeout(()=>{
+            const dropdownPos = document.getElementsByClassName('dropdownPos')[0];
+            if(dropdownPos){
+                dropdownPos.style.display = 'inline-block';
+                dropdownPos.style.left = pageX - dropdownPos.offsetWidth + "px";
+                dropdownPos.style.top = pageY - dropdownPos.offsetHeight + "px";
+            }
+        }, 0);
+    }
+}
