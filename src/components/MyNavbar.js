@@ -6,10 +6,10 @@ import context from "react-bootstrap/esm/AccordionContext";
 import classes from "./styles.module.scss";
 
 function MyNavbar() {
-  const contextType = ThemeContexts
+  // const contextType = ThemeContexts
   console.log(context)
-  const { isLightThme, light, dark } = context
-  const theme = isLightThme ? light : dark;
+  // const { isLightThme, light, dark } = context
+  // const theme = isLightThme ? light : dark;
   //旋轉
   const handleCardShow = ( _type , _index , _target) => {
     const target = _type + _index;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom'
+// import ReactDOM from 'react-dom'
 import { from, BehaviorSubject } from 'rxjs'
-import { map, filter, delay, mergeMap, debounceTime, distinctUntilChanged } from 'rxjs/operators'
+import {  filter, mergeMap, debounceTime, distinctUntilChanged } from 'rxjs/operators'
 //https://www.youtube.com/watch?v=Urv82SGIu_0
 const getPokemonByName = async name => {
     const { results: allPokemons } = await fetch(
@@ -24,7 +24,7 @@ let searchResultObservable = searchSubject.pipe(
 function App() {
     const [search, setSearch] = useState("")
     const [results, setResults] = useState([])
-    const [urlRes,setUrlRes] = useState(null)
+    // const [urlRes,setUrlRes] = useState(null)
     const [imageUrl,setImageUrl] = useState("https://i0.wp.com/www.alphr.com/wp-content/uploads/2016/07/whos_that_pokemon.png")
     const useObservable = (observable, setter) => {
         useEffect(() => {
@@ -59,7 +59,7 @@ function App() {
                 /><button onClick={() => handleSearch}>search</button>
                 <ul>
                     {results.map((value,idx) => (
-                        <a key={idx} href="#" onClick={()=>getPokemonImg(value.url)}><li key={value.name}>{value.name}</li></a>
+                        <a key={idx} href="/#" onClick={()=>getPokemonImg(value.url)}><li key={value.name}>{value.name}</li></a>
                     ))}
                 </ul>
             </div>
