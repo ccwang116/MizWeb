@@ -1,0 +1,47 @@
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(2);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+.building{
+    width: 100vw;
+    height: 100vh;
+    background: url('https://cdn.pixabay.com/photo/2018/10/04/14/14/tianjin-3723726_960_720.jpg') no-repeat;
+    background-size: cover;
+}
+.street{
+    width: 100vw;
+    height: 100vh;
+    background: no-repeat url('https://cdn.pixabay.com/photo/2020/05/06/00/15/cyberpunk-5135622_960_720.jpg');
+    background-size: cover;
+    position: relative;
+    .fly{
+        color: white;
+        font-size: 20px;
+        position: absolute;
+        left: calc((100vw - 150px) / 3);
+        top: calc((100vh - 150px) / 3);
+    }
+}
+.bus{
+    width: 100vw;
+    height: 100vh;
+    background: no-repeat url('https://cdn.pixabay.com/photo/2018/12/03/03/17/city-3852646_960_720.jpg');
+    background-size: cover;
+}
+.alphabet{
+    width: 150px;
+    height: 150px;
+    z-index: 4;
+    background:no-repeat url('https://i.pinimg.com/originals/75/39/87/753987e453e76927dcd78b275fb82b06.png');
+    background-size: contain;
+    position: absolute;
+    left: calc((100vw - 150px) / 2);
+    top: calc((100vh - 150px) / 2);
+    animation: fadeIn cubic-bezier(0.680, -0.550, 0.265, 1.550) 0.1s both;
+}
