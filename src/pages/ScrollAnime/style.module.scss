@@ -8,40 +8,105 @@
         transform: scale(1);
     }
 }
+
+section{
+    height: 100vh;
+}
+
 .building{
     width: 100vw;
-    height: 100vh;
+    
     background: url('https://cdn.pixabay.com/photo/2018/10/04/14/14/tianjin-3723726_960_720.jpg') no-repeat;
     background-size: cover;
 }
 .street{
     width: 100vw;
-    height: 100vh;
+    
     background: no-repeat url('https://cdn.pixabay.com/photo/2020/05/06/00/15/cyberpunk-5135622_960_720.jpg');
     background-size: cover;
-    position: relative;
+    // position: relative;
     .fly{
         color: white;
         font-size: 20px;
-        position: absolute;
+        position: fixed;
         left: calc((100vw - 150px) / 3);
-        top: calc((100vh - 150px) / 3);
+        top: calc((100vh - 150px) / 3 + 100px);
+        transition: .6s;
+        opacity: 0;
+        &.active{
+            top: calc((100vh - 150px) / 3);
+            opacity: 1;
+        }
     }
 }
 .bus{
     width: 100vw;
-    height: 100vh;
+    
     background: no-repeat url('https://cdn.pixabay.com/photo/2018/12/03/03/17/city-3852646_960_720.jpg');
     background-size: cover;
 }
 .alphabet{
-    width: 150px;
-    height: 150px;
+    width: 0px;
+    height: 0px;
     z-index: 4;
     background:no-repeat url('https://i.pinimg.com/originals/75/39/87/753987e453e76927dcd78b275fb82b06.png');
     background-size: contain;
-    position: absolute;
+    position: fixed;
     left: calc((100vw - 150px) / 2);
     top: calc((100vh - 150px) / 2);
-    animation: fadeIn cubic-bezier(0.680, -0.550, 0.265, 1.550) 0.1s both;
+    transition: 1.5s;
+    opacity: 0;
+    &.active{
+        width: 100vw;
+        height: 100%;
+        left: calc((100vw - 100vw) / 2);
+        top: calc((100vh - 100%) / 2);
+        opacity: 1;
+    }
+}
+.white{
+    width: 100vw;
+    background: white;
+    clip-path: inset(100% 0px 0px);
+    
+    &.active{
+    clip-path: inset(0% 0px 0px);
+    position: fixed;
+    left: 0;
+    top: 0;
+    }
+}
+.black{
+    
+    width: 100vw;
+    background-color: #000;
+    color: white;
+    clip-path: inset(100% 0px 0px);
+
+    &.active{
+    clip-path: inset(0% 0px 0px);
+
+    }
+}
+.red{
+    width: 100vw;
+    background: red;
+    color: white;
+    clip-path: inset(100% 0px 0px);
+
+    &.active{
+    clip-path: inset(0% 0px 0px);
+
+    }
+}
+.bigword{
+    transition: 1s;
+    p{
+        font-size: 20pt;
+        font-family: '微軟正黑體';
+        font-weight: 900;
+        position: fixed;
+        left: calc((100vw - 20pt) / 2);
+        top: calc((100vh - 20pt) / 2);
+    }
 }
