@@ -61,3 +61,20 @@ const fixposition = (e)=>{
         }, 0);
     }
 }
+//observe version
+const target = useRef() // 加上動畫的地方
+const observer = useRef() // 觸發動畫的點
+const triggerElement = useCallback( node =>{
+    if (observer.current) observer.current.disconnect()
+    observer.current = new IntersectionObserver(entries => {
+        if(target){
+            if (entries[0].isIntersecting) {
+                target.current.classList.add(cx('start'))
+            }
+        }
+    })
+    if(node) observer.current.observe(node)
+}, [])
+//return的地方
+{/* <div className={cx('sloganMotion')} ref={target} >
+<div ref={triggerElement} className={cx('trigger')} ></div> */}
