@@ -12,6 +12,36 @@
 section{
     height: 100vh;
 }
+.section-colors .container-content-colors {
+    margin-left: auto;
+    margin-right: auto;
+    // width: 980px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    height: 1294px;
+}
+.section-colors .enhanced .wipe {
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+}
+.section-colors .wipe {
+    overflow: hidden;
+}
+.section-colors .enhanced .wipe .wipe-content {
+    height: initial;
+}
 
 .building{
     width: 100vw;
@@ -67,7 +97,7 @@ section{
 .white{
     width: 100vw;
     background: white;
-    clip-path: inset(100% 0px 0px);
+    // clip-path: inset(100% 0px 0px);
     
     &.active{
     clip-path: inset(0% 0px 0px);
@@ -100,7 +130,7 @@ section{
     }
 }
 .bigword{
-    transition: 1s;
+    // transition: 0.1s;
     p{
         font-size: 20pt;
         font-family: '微軟正黑體';
