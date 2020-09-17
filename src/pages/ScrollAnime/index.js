@@ -14,6 +14,11 @@ function ScrollAnime() {
             left: window.scrollX,
         };
         const innHeight = window.innerHeight
+        const flyDOM = document.querySelector('#fly')
+        const alphabetDOM = document.querySelector('#alphabet')
+        const blackDOM = document.querySelector('#black')
+        const redDOM = document.querySelector('#red')
+
         console.log("A", offset);
         console.log("B", innHeight);
         console.log("C", document.documentElement.scrollHeight);
@@ -23,24 +28,21 @@ function ScrollAnime() {
         }
         //clip 100 是沒有 0是填滿
         if (offset.top > innHeight / 2 && offset.top < innHeight * 2) {
-            setTopNumber(2)
-        } else if (offset.top > innHeight * 2 && offset.top < innHeight * 2.5) {
-            setTopNumber(3)
+            // setTopNumber(2)
+            flyDOM.style.top = `calc((100vh - 150px) / 2 - ${calcInterPercentage(0.5)}px)`;
+            flyDOM.style.opacity = calcInterPercentage(0.5) / 100;
         } else if (offset.top > innHeight * 3 && offset.top < innHeight * 4) {
-            const blackDOM = document.querySelector('#black')
+            // setTopNumber(3)
+            alphabetDOM.style.transform = `matrix(${calcInterPercentage(3)*0.1}, 0, 0, ${calcInterPercentage(3)*0.1}, 0, 0)`;
+            alphabetDOM.style.opacity = calcInterPercentage(2) / 100;
+        } else if (offset.top > innHeight * 3.5 && offset.top < innHeight * 4) {
             blackDOM.style.clipPath = `inset(${100 - calcInterPercentage(3)}% 0px 0px)`;
-            const redDOM = document.querySelector('#red')
             redDOM.style.clipPath = `inset(100% 0px 0px)`;
         } else if (offset.top > innHeight * 4 && offset.top < innHeight * 5) {
-            const blackDOM = document.querySelector('#black')
             blackDOM.style.clipPath = `inset(0% 0px 0px)`;
-            
-            const redDOM = document.querySelector('#red')
             redDOM.style.clipPath = `inset(${100 - calcInterPercentage(4)}% 0px 0px)`;
         } else if (offset.top > innHeight * 5 && offset.top < innHeight * 6) {
-            const redDOM = document.querySelector('#red')
             redDOM.style.clipPath = `inset(0% 0px 0px)`;
-
         } else {
             setTopNumber(0)
 
@@ -127,21 +129,22 @@ function ScrollAnime() {
     }, [])
     return (
         <>
-            <section className={cx('building')} id="scrollCapture" data-amime="5s">
-                <div className={cx('alphabet', { 'active': topnumber == 3 })}>
+            <section className={cx('bus')} id="bus" >
 
-                </div>
-            </section>
+            </section>  
+            
 
             <section className={cx('street')} ref={target}>
                 <div ref={triggerElement} className={cx('trigger')} ></div>
-                <div className={cx('fly', { 'active': topnumber == 2 })}>
+                <div className={cx('fly', { 'active': topnumber == 2 })} id="fly">
 
                     the words are flying
             </div>
             </section>
-            <section className={cx('bus')} id="bus" >
+            <section className={cx('building')} id="scrollCapture" data-amime="5s">
+                <div className={cx('alphabet', { 'active': topnumber == 3 })} id="alphabet">
 
+                </div>
             </section>
             {/* 白色黑色紅色 */}
             {/* set offset.top為某值，然後clippath跟著某值去改變。 */}
