@@ -78,3 +78,15 @@ const triggerElement = useCallback( node =>{
 //return的地方
 {/* <div className={cx('sloganMotion')} ref={target} >
 <div ref={triggerElement} className={cx('trigger')} ></div> */}
+
+//解決前往連結後頁面不在top的方法
+componentDidUpdate(prevProps) {
+    if (this.props.location.pathname !== prevProps.location.pathname) {
+        const node = document.querySelector("#scrollCapture");
+        node.scrollTo({
+            top: 0,
+            left: 0,
+        });
+
+    }
+}
