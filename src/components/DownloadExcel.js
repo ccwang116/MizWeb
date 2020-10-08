@@ -42,3 +42,86 @@ function downloadBlob(blob, name = 'file.csv') {
       .then(response => downloadBlob(response, 'noAlert.xlsx'))
 
   }
+
+
+// acer 的 request 寫法
+import axios from 'axios';
+const request = (method, url, options) =>
+axios({
+    method,
+    url,
+    ...options,
+})
+.then(async (response) => {
+    const statusCode = get(response, "data.header.status", null);
+    if (statusCode !== null && statusCode !== "OK" && url.indexOf("/member/login-status") < 0) {
+        if (statusCode === "M2003" || statusCode === "M2010") {
+            console.log(`${url}: ${statusCode}. Should Logout, options: ${JSON.stringify(options)}`);
+            const token = await renewToken(generateRandomString());
+            options.headers.Authorization = `Bearer ${token}`;
+            console.log(`url: ${url}, options: ${JSON.stringify(options)}`);
+            const data = await request(method, url, options);
+            console.log(`url: ${url} - OK!`);
+            return {
+                status: data.status,
+                data: data.data,
+                headers: data.headers,
+            };
+        } else {
+            console.log(`${url}: ${statusCode}`);
+        }
+    }
+
+    return {
+        status: response.status,
+        data: response.data,
+        headers: response.headers,
+    }; 
+})
+.catch(error => {
+    if (!error.response) {
+        return {
+            status: 500,
+        };
+    }
+    return {
+        status: error.response.status,
+    };
+});
+
+export default request;
+// ------------------------------------------
+export const postClubAnalyticReportsAPI = (data, access_token) =>
+    request(
+        'POST',
+        `${domain}/club/analytic-reports/${data.club_id}?start_at=${data.start_at}&end_at=${data.end_at}`,
+        {
+            headers: {
+            'Content-Type': 'text/csv',
+            Authorization: `Bearer ${access_token}`,
+            },
+            responseType: 'blob'
+        }
+    );
+// ------------------------------------------
+const getFormdata = ()=>{
+  let data = {
+    club_id: +club.club_id,
+    start_at:'202009020300',
+    end_at:'202009291600'
+  };
+  fetchListener.current = from(apiWithTokenWrapper(postClubAnalyticReportsAPI,data)
+  ).subscribe(res => {
+      
+      if (+res.status === 200 ) {
+          const fileName = 'test'
+          const blob = new Blob([res.data],{type: res.headers['content-type']})
+          const dd = window.URL.createObjectURL(blob)
+          const a = document.createElement('a')
+          a.href = dd
+          a.download = fileName
+          document.body.appendChild(a)
+          a.click()
+      }
+  });
+}
