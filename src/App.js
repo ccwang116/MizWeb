@@ -1,19 +1,18 @@
-import React  from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import MyNavbar from './components/MyNavbar'
+import MyNavbar from "./components/MyNavbar";
 // import MyFooter from './components/MyFooter'
-import MainContent from './components/MainContent'
+import MainContent from "./components/MainContent";
 import About from "./pages/About";
 import RxjsWithPokemon from "./components/RxjsWithPokemon";
 
-import NotFoundPage from './pages/NotFoundPage'
-import UserForm from './components/UserForm'
-import ScrollAnime from './pages/ScrollAnime';
-
+import NotFoundPage from "./pages/NotFoundPage";
+import UserForm from "./components/UserForm";
+import ScrollAnime from "./pages/ScrollAnime";
+import DemoMention from "./pages/DemoMention";
 
 function App(props) {
-  
   return (
     <Router>
       <>
@@ -32,6 +31,9 @@ function App(props) {
             <Route exact path="/pokemon">
               <RxjsWithPokemon />
             </Route>
+            <Route exact path="/mention">
+              <DemoMention />
+            </Route>
             <Route exact path="*">
               <NotFoundPage />
             </Route>
@@ -40,7 +42,7 @@ function App(props) {
         {/* <MyFooter /> */}
       </>
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;
