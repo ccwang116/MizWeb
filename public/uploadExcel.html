@@ -4,65 +4,36 @@
         <title>upload</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- <link href="css/style.css" rel="stylesheet"> -->
+        <link href="css/style_root_blue.css" rel="stylesheet" type="text/css"  title="CSS1" ID="CSS1" DISABLED>
+        <link href="css/style_root_pink.css" rel="stylesheet" type="text/css"  title="CSS2" ID="CSS2" >
         <style>
-            h3{
-                margin: 0;
-                margin-bottom: 5px;
-            }
-        .card{
-            width: 280px;
-            background:rgb(238, 250, 255);
-            border-radius:10px;
-            padding: 10px;
-            margin-bottom: 25px;
-        }
-        .cardHeader{
-            color: rgb(207, 122, 11);
-        }
-        .cardBody{
-            padding: 5px;
-            background: rgb(255, 255, 255);
-            color: saddlebrown;
-            min-height: 60px;
-        }
-        .cardFooter{
-            padding: 5px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            background: rgb(255, 255, 255);
-        }
-        .cardFooter>div{
-            color: rgb(87, 17, 0);
-        }
-        .cardFooter>div>div{
-            display: inline-block;
-            font-size: 25px;
-           font-weight: 800;
-           color: rgb(241, 48, 0);
-        }
-       
-        .cardFooter>span{
-           color: rgb(26, 26, 26);
-           font-size: 18px;
-           font-weight: 800;
+        #show{
+            display:inline-block;
         }
         </style>
-    </head>
     <body>
         <input type="file" id="fileUploader" name="fileUploader" accept=".xls, .xlsx"/>
     </br></br>
-    JSON : <label id="jsonObject"> </label>
+    <button onclick={changeCss(1)}>藍色</button>
+    <button onclick={changeCss(2)}>紅色</button>
+        <div style="display: none;">
+            JSON : <label id="jsonObject"> </label>
+        </div>
+        <div>
     <div id="show"></div>
-    <div class="card">
-        <div class="cardHeader"><h3>產品名稱</h3></div>
+            
+        </div>
+ 
+   
+    <!-- <a href="#" class="btn btn-block btn-primary mb-3" id="btnDownload">Download</a> -->
+    <div class="card" id="example">
+        <div class="cardHeader"><h1>卡片預覽</h1></div>
         <div class="cardBody">
             <sapn>產品內容1234556</sapn>
             
         </div>
         <div class="cardFooter">
-            <span>出產地</span> 
+            <span>左下的字</span> 
             <div>
                 <span>特價</span> <div>599</div>
             </div>
@@ -74,7 +45,32 @@
       crossorigin="anonymous"
     ></script>
     <script lang="javascript" src="../src/js/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.js"></script>
     <script>
+    //click to download
+    function download(url){
+        var a = $("<a style='display:none' id='js-downloder'>")
+        .attr("href", url)
+        .attr("download", "download_card.png")
+        .appendTo("body");
+
+        a[0].click();
+
+        a.remove();
+    }
+
+    function saveCapture(element) {
+    html2canvas(element).then(function(canvas) {
+        download(canvas.toDataURL("image/png"));
+    })
+    }
+
+    // $('#btnDownload').click(function(){
+    // var element = document.querySelector("#show");
+    // saveCapture(element)
+    // })
+
+
     $("#fileUploader").change(function(evt){
     var selectedFile = evt.target.files[0];
     var reader = new FileReader();
@@ -85,25 +81,33 @@
     });
     workbook.SheetNames.forEach(function(sheetName) {
     var XL_row_object = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
-    if (XL_row_object.length > 0) {
-    document.getElementById("jsonObject").innerHTML = JSON.stringify(XL_row_object);
-    const targetContent = XL_row_object.map((val)=>`
-    <div class="card">
-        <div class="cardHeader"><h3>${val.name}</h3></div>
-        <div class="cardBody">
-            <sapn>${val.desp}</sapn>
-            
-        </div>
-        <div class="cardFooter">
-            <span>${val.location}</span> 
-            <div>
-                <span>${val.pre_word}</span> <div>${val.price}</div>
-            </div>
-        </div>
-    </div>
-    `)
-    $("#show").append(targetContent);
-    }
+        if (XL_row_object.length > 0) {
+            document.getElementById("jsonObject").innerHTML = JSON.stringify(XL_row_object);
+            const targetContent = XL_row_object.map((val,idx)=>`
+                <div class="card" id="card${idx}">
+                    <div class="cardHeader"><h1>${val.name}</h1></div>
+                    <div class="cardBody">
+                        <sapn>${val.desp}</sapn>
+                        
+                    </div>
+                    <div class="cardFooter">
+                        <span>${val.location}</span> 
+                        <div>
+                            <span>原價${val.pre_word}特價$</span> <div>${val.price}</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="btn btn-block btn-primary mb-3" id="btnDownload${idx}">Download</a>
+            `)
+            $("#show").append(targetContent);
+            $("#example").css("display","none")
+            for (let i = 0; i < XL_row_object.length; i++) {
+                $(`#btnDownload${i}`).click(function(){
+                var element = document.querySelector(`#card${i}`);
+                saveCapture(element)
+                })
+            }
+        }
     })
     };
     reader.onerror = function(event) {
@@ -112,6 +116,18 @@
     // 讀取上傳文件為二進制
     reader.readAsBinaryString(selectedFile);
     });
+    
+    
+    //click toggle css
+    function changeCss(id){
+        for(var i=1;i<5;i++){
+            if(i==id){
+                document.getElementById("CSS"+i).disabled= false;
+            }else{
+                document.getElementById("CSS"+i).disabled= true;
+            }
+        }
+    }
     
     
     </script>
