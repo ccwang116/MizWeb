@@ -1,0 +1,55 @@
+:root {
+  --bgColor: rgb(238, 250, 255);
+  --bodyColor: #ffffff;
+  --headWordColor: rgb(207, 122, 11);
+  --contentWordColor: saddlebrown;
+  --footerColor: #ffffff;
+  --beforePrice: rgb(87, 17, 0);
+  --price: rgb(241, 48, 0);
+  --leftBottom: rgb(26, 26, 26);
+  --gap: 5px;
+}
+h1 {
+  margin: 0;
+  margin-bottom: 5px;
+}
+.card {
+  width: 595px;
+  border-radius: 10px;
+  margin-bottom: var(--gap);
+  border: 15px solid var(--bgColor);
+}
+.cardHeader {
+  color: var(--headWordColor);
+  background: var(--bgColor);
+}
+.cardBody {
+  font-size: 28px;
+  padding: 15px;
+  background: var(--bodyColor);
+  color: var(--contentWordColor);
+  min-height: 120px;
+}
+.cardFooter {
+  font-size: 28px;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  background: var(--footerColor);
+}
+.cardFooter > div {
+  color: var(--beforePrice);
+}
+.cardFooter > div > div {
+  display: inline-block;
+  font-size: 60px;
+  font-weight: 800;
+  color: var(--price);
+}
+
+.cardFooter > span {
+  color: var(--leftBottom);
+  font-size: 28px;
+  font-weight: 800;
+}
