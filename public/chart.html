@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>test_chart</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="chartmain" style="width: 600px; height: 400px"></div>
+    <div id="chart2" style="width: 600px; height: 400px"></div>
+    <script lang="javascript" src="../src/js/gEChart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.0.2/dist/echarts.min.js"></script>
+    <script>
+      ///把type改成bar或line
+      var option = {
+        title: {
+          text: "ECharts 資料統計",
+        },
+        tooltip: {},
+        legend: {
+          data: ["使用者來源"],
+        },
+        xAxis: {
+          data: ["Android", "IOS", "PC", "Ohter"],
+        },
+        yAxis: {},
+        series: [
+          {
+            name: "訪問量",
+            type: "line",
+            data: [500, 200, 360, 100],
+          },
+        ],
+      };
+      //初始化echarts例項
+      var myChart = echarts.init(document.getElementById("chartmain"));
+
+      //使用制定的配置項和資料顯示圖表
+      myChart.setOption(option);
+      ////circle
+      var circleOption = {
+        title: {
+          text: "ECharts 資料統計",
+        },
+        series: [
+          {
+            name: "訪問量",
+            type: "pie",
+            radius: "60%",
+            data: [
+              { value: 500, name: "Android" },
+              { value: 200, name: "IOS" },
+              { value: 360, name: "PC" },
+              { value: 100, name: "Ohter" },
+            ],
+          },
+        ],
+      };
+      var myChart2 = echarts.init(document.getElementById("chart2"));
+      myChart2.setOption(circleOption);
+    </script>
+  </body>
+</html>
