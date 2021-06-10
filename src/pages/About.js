@@ -31,8 +31,8 @@ function About({ total = 12, variant = "secondary" }) {
     if (index < 4) {
       return num > 0 && num < 6;
     }
-    if (index > total - 5) {
-      return num > 7 && num < total + 1;
+    if (index > total - 3) {
+      return num > total - 5 && num < total + 1;
     }
     return num > index - 3 && num < index + 3;
   }
