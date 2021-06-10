@@ -5,8 +5,42 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="css/style.css" rel="stylesheet" />
+    <style>
+      .d-flex {
+        display: flex;
+      }
+      .align-items-center {
+        align-items: center;
+      }
+      .align-items-stretch {
+        align-items: stretch;
+      }
+      .justify-content-between {
+        justify-content: space-between;
+      }
+      .flex-column {
+        flex-direction: column;
+      }
+      .pink {
+        background-color: pink;
+      }
+    </style>
   </head>
   <body>
+    <div style="text-align: center; padding: 0 8px; line-height: 24px">
+      <div class="d-flex flex-column align-items-center">
+        <div class="d-flex align-items-stretch">
+          <div class="" style="line-height: 48px">390</div>
+          <div>
+            <div class="">+190</div>
+            <div class="">up 95%</div>
+          </div>
+        </div>
+
+        <div>2021 VS 2022</div>
+      </div>
+    </div>
+
     <div id="chartmain" style="width: 600px; height: 400px"></div>
     <div id="chart2" style="width: 600px; height: 400px"></div>
     <script lang="javascript" src="../src/js/gEChart.js"></script>
