@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poker</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        .btn {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .btn a {
+            width: 150px;
+            height: 150px;
+            font-size: 16px;
+            font-family: "微軟正黑體";
+            letter-spacing: 4px;
+            line-height: 130px;
+            color: #fff;
+            background: #f44268;
+            border-bottom: 3px solid #991a35;
+            border-radius: 50%;
+            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+            padding: 10px 20px;
+            margin: 0 20px;
+            display: inline-block;
+            cursor: pointer;
+            transition-duration: 0.3s;
+        }
+
+        .btn a.random {
+            background: #198599;
+            border-color: #134c56;
+        }
+
+        .btn a:hover {
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            border-width: 2px;
+        }
+
+        .btn a::after {
+            content: "";
+            width: 80%;
+            height: 80%;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            position: absolute;
+            top: 9%;
+            left: 9%;
+        }
+
+        ul {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        ul li {
+            width: calc(100% / 13);
+            min-width: 100px;
+            height: 120px;
+            list-style: none;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+            transition-duration: 0.3s;
+            color: #666;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+        }
+
+        ul li.R {
+            color: #f44268;
+        }
+
+        ul li:hover {
+            margin: 12px 0 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        ul li .top,
+        ul li .bottom {
+            width: 20px;
+            font-size: 12px;
+            line-height: 12px;
+            text-align: center;
+            padding: 5px;
+        }
+
+        ul li .top span,
+        ul li .bottom span {
+            display: block;
+        }
+
+        ul li .bottom {
+            transform: rotate(180deg);
+        }
+
+        ul li .mid {
+            font-size: 22px;
+            line-height: 1.1;
+            width: calc(100% - 40px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        ul li .mid>span {
+            font-size: 9px;
+        }
+
+        ul li .mid div {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            text-align: center;
+        }
+
+        ul li .mid div.big {
+            font-size: 30px;
+            line-height: 80px;
+            border: 3px solid #f4f4f4;
+        }
+
+        ul li .mid div span {
+            display: block;
+        }
+
+        ul li .mid div span.dr {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <div class="form-row">
+            <div class="col">
+                <label for="pokerinput1">Count of:A</label>
+                <input type="text" class="form-control" maxlength="1" id="pokerinput1">
+            </div>
+            <div class="col">
+                <label for="pokerinput2">Count of:2</label>
+                <input type="text" class="form-control" maxlength="1" id="pokerinput2">
+            </div>
+            <div class="col">
+                <label for="pokerinput3">Count of:3</label>
+                <input type="text" class="form-control" maxlength="1" id="pokerinput3">
+            </div>
+            <div class="col">
+                <label for="pokerinput4">Count of:4</label>
+                <input type="text" class="form-control" maxlength="1" id="pokerinput4">
+            </div>
+            <div class="col">
+                <label for="pokerinput5">Count of:5</label>
+                <input type="text" class="form-control" maxlength="1" id="pokerinput5">
+            </div>
+            <div class="col">
+                <label for="pokerinput2">Count of:6</label>
+                <input type="text" class="form-control" maxlength="1" id="pokerinput2">
+            </div>
+            <div class="col">
+                <label for="pokerinput2">Count of:7</label>
+                <input type="text" class="form-control" maxlength="1" id="pokerinput2">
+            </div>
+            <div class="col">
+                <label for="pokerinput2">Count of:8</label>
+                <input type="text" class="form-control" maxlength="1" id="pokerinput2">
+            </div>
+            <div class="col">
+                <label for="pokerinput2">Count of:9</label>
+                <input type="text" class="form-control" maxlength="1" id="pokerinput2">
+            </div>
+            <div class="col">
+                <label for="pokerinput2">Count of:10</label>
+                <input type="text" class="form-control" maxlength="1" id="pokerinput2">
+            </div>
+            <div class="col">
+                <label for="pokerinput2">Count of:J</label>
+                <input type="text" class="form-control" maxlength="1" id="pokerinput2">
+            </div>
+            <div class="col">
+                <label for="pokerinput2">Count of:Q</label>
+                <input type="text" class="form-control" maxlength="1" id="pokerinput2">
+            </div>
+            <div class="col">
+                <label for="pokerinput2">Count of:K</label>
+                <input type="text" class="form-control" maxlength="1" id="pokerinput2">
+            </div>
+        </div>
+    </form>
+    <ul class="card"></ul>
+    <div class="btn"><a class="random">洗牌</a><a class="reset">重置</a></div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script>
+        console.clear()
+
+        // var items = ["♠", "♥", "♦", "♣"]
+        var items = ["♥"]
+
+        var cardItems = []
+        //每張牌的數量
+        var totalCardCount = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        //重置牌
+        function reset() {
+            $("ul.card").text("")
+
+            //所有牌組
+            cardItems = []
+            for (var i = 0; i < items.length; i++) {
+                var item = items[i]
+                // if (i == 1 || i == 2) {
+                //     var itemcolor = "R"
+                // } else {
+                //     var itemcolor = "B"
+                // }
+                var itemcolor = "R"
+
+                for (var j = 1; j <= 13; j++) {
+                    var tmp = j
+                    if (tmp == 1) {
+                        tmp = "A"
+                    } else if (tmp == 11) {
+                        tmp = "J"
+                    } else if (tmp == 12) {
+                        tmp = "Q"
+                    } else if (tmp == 13) {
+                        tmp = "K"
+                    }
+                    var cardItemsObj = {
+                        sign: item,
+                        signnum: tmp,
+                        signcolor: itemcolor,
+                        count: totalCardCount[j - 1]
+                    }
+                    cardItems.push(cardItemsObj)
+                }
+            }
+        }
+
+        //隨機洗牌
+        function cardRandom() {
+            reset()
+
+            var tmp_card = ""
+            var t_card = 0
+            for (var i = 0; i < cardItems.length; i++) {
+                t_card = Math.floor((Math.random() * 51) + 1)
+                tmp_card = cardItems[i]
+                cardItems[i] = cardItems[t_card]
+                cardItems[t_card] = tmp_card
+            }
+        }
+
+
+        //列印所有牌
+        function cardPrint() {
+            for (var i = 0; i < cardItems.length; i++) {
+                var item = cardItems[i]
+                if (item.signcolor == "R") {
+                    var cards = $('<li class="R">')
+                } else {
+                    var cards = $('<li>')
+                }
+                var itemTxt = item.signnum + "<span>" + item.sign + "</span>"
+                cards.append("<div class='top'>" + itemTxt + "</div>")
+                // cards.append("<div class='mid'>" + item.sign +"</div>")
+                cards.append(`<div class='mid'><span>${item.count}</span>` + getImg(item.sign, item.signnum) + "</div>")
+                cards.append("<div class='bottom'>" + itemTxt + "</div>")
+                $("ul.card").append(cards)
+            }
+        }
+
+        //花色列印
+        function getImg(sign, n) {
+            var show = ""
+            if (n == 'J' || n == 'Q' || n == 'K') {
+                show = "<div class='big'>" + n + "</div>"
+
+            } else {
+
+                var show_r1 = ""
+                if (n == 'A' || n == 2 || n == 3) {
+                    show_r1 = getImgLoop(sign, 0)
+                } else if (n == 4 || n == 5) {
+                    show_r1 = getImgLoop(sign, 2)
+                } else if (n == 6 || n == 7 || n == 8) {
+                    show_r1 = getImgLoop(sign, 3)
+                } else if (n == 9 || n == 10) {
+                    show_r1 = getImgLoop(sign, 4)
+                }
+
+                var show_r2 = ""
+                if (n == 'A' || n == 5 || n == 7 || n == 9) {
+                    show_r2 = getImgLoop(sign, 1)
+                } else if (n == 2 || n == 8 || n == 10) {
+                    show_r2 = getImgLoop(sign, 2)
+                } else if (n == 3) {
+                    show_r2 = getImgLoop(sign, 3)
+                } else if (n == 4 || n == 6) {
+                    show_r2 = getImgLoop(sign, 0)
+                }
+                show += "<div>" + show_r1 + "</div>"
+                show += "<div>" + show_r2 + "</div>"
+                show += "<div>" + show_r1 + "</div>"
+            }
+
+            return show
+        }
+        //花色牌列
+        function getImgLoop(sign, n) {
+            var tmpTxt = ""
+            for (var k = 1; k <= n; k++) {
+                if (k > 2) {
+                    var tmp = '<span class="dr">'
+                } else {
+                    var tmp = '<span>'
+                }
+                tmpTxt += tmp + sign + "</span>"
+            }
+            return tmpTxt
+        }
+
+
+        //-------------------------------------
+        reset()
+        cardPrint()
+        $(".btn a.random").click(
+            function () {
+                cardRandom()
+                cardPrint()
+            }
+        )
+
+        $(".btn a.reset").click(
+            function () {
+                reset()
+                cardPrint()
+            }
+        )
+            $("input").keyup(function () {
+                console.log("hi",this.value.length)
+                if (this.value.length === 1) {
+                    $(this).next("").focus();
+                }
+            })
+    </script>
+</body>
+
+</html
