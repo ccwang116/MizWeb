@@ -19,7 +19,7 @@
 
         .btn {
             text-align: center;
-            margin-top: 50px;
+            /* margin-top: 50px; */
         }
 
         .btn a {
@@ -62,13 +62,14 @@
             left: 9%;
         }
 
-        ul {
+        .main {
             width: 100%;
             display: flex;
             flex-wrap: wrap;
+            margin-top: 15px;
         }
 
-        ul li {
+        .main .box {
             width: calc(100% / 13);
             min-width: 100px;
             height: 120px;
@@ -82,19 +83,28 @@
             cursor: pointer;
             position: relative;
             display: flex;
+            background: white;
         }
 
-        ul li.R {
+        .main .wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .main .box.R {
             color: #f44268;
         }
 
-        ul li:hover {
-            margin: 12px 0 8px;
+        .main .box:hover {
+            /* margin: 12px 0 8px; */
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transform: scale(1.1);
         }
 
-        ul li .top,
-        ul li .bottom {
+        .main .box .top,
+        .main .box .bottom {
             width: 20px;
             font-size: 12px;
             line-height: 12px;
@@ -102,16 +112,16 @@
             padding: 5px;
         }
 
-        ul li .top span,
-        ul li .bottom span {
+        .main .box .top span,
+        .main .box .bottom span {
             display: block;
         }
 
-        ul li .bottom {
+        .main .box .bottom {
             transform: rotate(180deg);
         }
 
-        ul li .mid {
+        .main .box .mid {
             font-size: 22px;
             line-height: 1.1;
             width: calc(100% - 40px);
@@ -122,30 +132,32 @@
             justify-content: center;
         }
 
-        ul li .mid>span {
+        .main .box .mid>span {
             font-size: 9px;
         }
 
-        ul li .mid div {
+        .main .box .mid div {
             display: flex;
             flex-direction: column;
             flex: 1;
             text-align: center;
         }
 
-        ul li .mid div.big {
+        .main .box .mid div.big {
             font-size: 30px;
             line-height: 80px;
             border: 3px solid #f4f4f4;
         }
 
-        ul li .mid div span {
+        .main .box .mid div span {
             display: block;
         }
 
-        ul li .mid div span.dr {
+        .main .box .mid div span.dr {
             transform: rotate(180deg);
         }
+
+        /* over-ride css */
     </style>
 </head>
 
@@ -154,7 +166,11 @@
         <div class="form-row">
             <div class="col">
                 <label for="pokerinput1">Count of:A</label>
-                <input type="text" class="form-control" maxlength="1" id="pokerinput1">
+                <div class="btn-group">
+                    <button class="minus btn btn-light">-</button>
+                    <input type="text" class="form-control" maxlength="1" id="pokerinput1" value=0>
+                    <button class="plus btn btn-light">+</button>
+                </div>
             </div>
             <div class="col">
                 <label for="pokerinput2">Count of:2</label>
@@ -173,41 +189,43 @@
                 <input type="text" class="form-control" maxlength="1" id="pokerinput5">
             </div>
             <div class="col">
-                <label for="pokerinput2">Count of:6</label>
-                <input type="text" class="form-control" maxlength="1" id="pokerinput2">
+                <label for="pokerinput6">Count of:6</label>
+                <input type="text" class="form-control" maxlength="1" id="pokerinput6">
             </div>
             <div class="col">
-                <label for="pokerinput2">Count of:7</label>
-                <input type="text" class="form-control" maxlength="1" id="pokerinput2">
+                <label for="pokerinput7">Count of:7</label>
+                <input type="text" class="form-control" maxlength="1" id="pokerinput7">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <label for="pokerinput8">Count of:8</label>
+                <input type="text" class="form-control" maxlength="1" id="pokerinput8">
             </div>
             <div class="col">
-                <label for="pokerinput2">Count of:8</label>
-                <input type="text" class="form-control" maxlength="1" id="pokerinput2">
+                <label for="pokerinput9">Count of:9</label>
+                <input type="text" class="form-control" maxlength="1" id="pokerinput9">
             </div>
             <div class="col">
-                <label for="pokerinput2">Count of:9</label>
-                <input type="text" class="form-control" maxlength="1" id="pokerinput2">
+                <label for="pokerinput10">Count of:10</label>
+                <input type="text" class="form-control" maxlength="1" id="pokerinput10">
             </div>
             <div class="col">
-                <label for="pokerinput2">Count of:10</label>
-                <input type="text" class="form-control" maxlength="1" id="pokerinput2">
+                <label for="pokerinput11">Count of:J</label>
+                <input type="text" class="form-control" maxlength="1" id="pokerinput11">
             </div>
             <div class="col">
-                <label for="pokerinput2">Count of:J</label>
-                <input type="text" class="form-control" maxlength="1" id="pokerinput2">
+                <label for="pokerinput12">Count of:Q</label>
+                <input type="text" class="form-control" maxlength="1" id="pokerinput12">
             </div>
             <div class="col">
-                <label for="pokerinput2">Count of:Q</label>
-                <input type="text" class="form-control" maxlength="1" id="pokerinput2">
-            </div>
-            <div class="col">
-                <label for="pokerinput2">Count of:K</label>
-                <input type="text" class="form-control" maxlength="1" id="pokerinput2">
+                <label for="pokerinput13">Count of:K</label>
+                <input type="text" class="form-control" maxlength="1" id="pokerinput13">
             </div>
         </div>
     </form>
-    <ul class="card"></ul>
-    <div class="btn"><a class="random">洗牌</a><a class="reset">重置</a></div>
+    <div class="col main"></div>
+    <div class="btn"><a class="random">TBD</a><a class="reset">重置</a></div>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script>
@@ -221,8 +239,7 @@
         var totalCardCount = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
         //重置牌
         function reset() {
-            $("ul.card").text("")
-
+            $("div.main").text("")
             //所有牌組
             cardItems = []
             for (var i = 0; i < items.length; i++) {
@@ -275,17 +292,19 @@
         function cardPrint() {
             for (var i = 0; i < cardItems.length; i++) {
                 var item = cardItems[i]
+                var wrapper = $('<div class="wrapper">')
                 if (item.signcolor == "R") {
-                    var cards = $('<li class="R">')
+                    var cards = $('<div class="box R">')
                 } else {
-                    var cards = $('<li>')
+                    var cards = $('<div class="box">')
                 }
                 var itemTxt = item.signnum + "<span>" + item.sign + "</span>"
                 cards.append("<div class='top'>" + itemTxt + "</div>")
-                // cards.append("<div class='mid'>" + item.sign +"</div>")
-                cards.append(`<div class='mid'><span>${item.count}</span>` + getImg(item.sign, item.signnum) + "</div>")
+                cards.append(`<div class='mid'>` + getImg(item.sign, item.signnum) + "</div>")
                 cards.append("<div class='bottom'>" + itemTxt + "</div>")
-                $("ul.card").append(cards)
+                wrapper.append(`<h5>${item.count}</h5>`)
+                wrapper.append(cards)
+                $("div.main").append(wrapper)
             }
         }
 
@@ -339,7 +358,12 @@
             return tmpTxt
         }
 
-
+        function calcTotalCount(idx, num) {
+            totalCardCount = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+            totalCardCount[idx] = totalCardCount[idx] + num
+            reset()
+            cardPrint()
+        }
         //-------------------------------------
         reset()
         cardPrint()
@@ -352,16 +376,46 @@
 
         $(".btn a.reset").click(
             function () {
+                totalCardCount = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
                 reset()
                 cardPrint()
+                $("input").val(0)
             }
         )
-            $("input").keyup(function () {
-                console.log("hi",this.value.length)
-                if (this.value.length === 1) {
-                    $(this).next("").focus();
-                }
-            })
+        $("input").keyup(function () {
+            if (this.value.length === 1) {
+                const id = $(this).attr("id")
+                const thisNum = +id.split("pokerinput")[1]
+                const thisIdx = thisNum - 1
+                const nextNum = thisNum === 13 ? 1 : thisNum + 1
+                // console.log(nextNum)
+                $(`#pokerinput${nextNum}`).focus();
+                // totalCardCount[thisIdx] = totalCardCount[thisIdx] - this.value
+                calcTotalCount(thisIdx, -this.value)
+                
+            }
+        })
+
+        $('.minus').click(function () {
+            let $input = $(this).parent().find('input');
+            const thisIdx = parseInt($input.attr("id").split("pokerinput")[1]) - 1
+            let count = parseInt($input.val()) - 1;
+            count = count < 0 ? 0 : count;
+            $input.val(count);
+            $input.change();
+            calcTotalCount(thisIdx, -count)
+            return false;
+        });
+        $('.plus').click(function () {
+            let $input = $(this).parent().find('input');
+            const thisIdx = parseInt($input.attr("id").split("pokerinput")[1]) - 1
+            let count = parseInt($input.val()) + 1
+            count = count > 4 ? 4 : count;
+            $input.val(count);
+            $input.change();
+            calcTotalCount(thisIdx, -count)
+            return false;
+        });
     </script>
 </body>
 
