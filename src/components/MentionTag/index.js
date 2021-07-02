@@ -59,7 +59,7 @@ function convertInitialContent(text) {
     });
     i++;
   });
-  console.log(resultAll);
+  // console.log(resultAll);
   return resultAll;
 }
 const initialContentState = Draft.convertFromRaw(
@@ -144,7 +144,7 @@ class PostEditor extends Component {
     const mentionArr = Object.values(raw.entityMap).map(
       (val) => val.data.mention
     );
-    console.log(raw);
+    // console.log(raw);
     const options = {
       entityStyleFn: (entity) => {
         const entityType = entity.get("type").toLowerCase();
