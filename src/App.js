@@ -16,7 +16,7 @@ function App(props) {
   return (
     <Router>
       <>
-        {/* <MyNavbar  /> */}
+        <MyNavbar />
         <MainContent>
           <Switch>
             <Route exact path="/">
