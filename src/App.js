@@ -11,6 +11,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 import UserForm from "./components/UserForm";
 import ScrollAnime from "./pages/ScrollAnime";
 import DemoMention from "./pages/DemoMention";
+import SongCh from "./pages/SongCh";
 
 function App(props) {
   return (
@@ -33,6 +34,9 @@ function App(props) {
             </Route>
             <Route exact path="/mention">
               <DemoMention />
+            </Route>
+            <Route exact path="/songch">
+              <SongCh />
             </Route>
             <Route exact path="*">
               <NotFoundPage />
