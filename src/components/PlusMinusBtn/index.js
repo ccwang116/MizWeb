@@ -18,7 +18,7 @@ function PlusMinusBtn({ prodLabel, price, onChange }) {
   return (
     <InputGroup className="mb-3" size="sm" style={{ width: "90px" }}>
       <Button variant="light" size="sm" onClick={() => handleMinus(prodLabel)}>
-        -
+        <i class="fas fa-minus"></i>
       </Button>
       <FormControl
         type="text"
@@ -27,7 +27,7 @@ function PlusMinusBtn({ prodLabel, price, onChange }) {
         onChange={(evt) => handleChangeAmount(prodLabel, evt.target.value)}
       />
       <Button variant="light" size="sm" onClick={() => handlePlus(prodLabel)}>
-        +
+        <i class="fas fa-plus"></i>
       </Button>
     </InputGroup>
   );

@@ -4,6 +4,7 @@ import PlusMinusBtn from "../components/PlusMinusBtn";
 function SongCh() {
   const [fields, setFields] = useState({});
   const [total, setTotal] = useState(0);
+  const [ship, setShip] = useState(0);
   const infoList = [
     {
       title: "雞翅",
@@ -22,17 +23,27 @@ function SongCh() {
     ...ele,
     label: "prod" + idx,
   }));
-  const handleTotal = (e, label, pri) => {
+  const handleFields = (e, label, pri) => {
     let temp = fields;
     temp[label] = {};
     temp[label]["amount"] = e;
     temp[label]["price"] = pri;
     setFields(temp);
+
+    //move to somewhere
+    calculateTotal(temp);
+  };
+  const calculateTotal = (obj) => {
     let res = 0;
-    Object.values(temp).map((ele) => {
+    Object.values(obj).map((ele) => {
       res += ele.amount * ele.price;
     });
-    setTotal(res);
+
+    setTotal(res + calculateShip());
+  };
+  const calculateShip = () => {
+    setShip(100);
+    return 100;
   };
 
   return (
@@ -52,19 +63,22 @@ function SongCh() {
               <PlusMinusBtn
                 prodLabel={e.label}
                 price={e.price}
-                onChange={handleTotal}
+                onChange={handleFields}
               />
             </div>
           </Card.Body>
         </Card>
       ))}
       <Navbar className="footer mt-auto py-3 bg-light" fixed="bottom">
-        <div className="container">
+        <div className="container align-items-end">
           <div>
+            <div className="text-muted">運費:${ship}</div>
             <span className="text-muted">TOTAL</span>
             <h3>${total}</h3>
           </div>
-          <Button variant="primary">分享</Button>
+          <Button className="mb-2" variant="primary">
+            分享
+          </Button>
         </div>
       </Navbar>
     </>
