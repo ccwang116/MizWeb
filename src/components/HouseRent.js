@@ -37,8 +37,8 @@ function HouseRent() {
                   alt={`slide ${idx}`}
                 />
                 <Carousel.Caption>
-                  {/* <h3>召募室友，採光大雅房，可養貓，可開伙</h3> */}
-                  <p>召募室友，採光大雅房，可養貓，可開伙</p>
+                  {/* <h3>招募室友，採光大雅房，可養貓，可開伙</h3> */}
+                  <p>招募室友，採光大雅房，可養貓，可開伙</p>
                 </Carousel.Caption>
               </Carousel.Item>
             ))}
@@ -48,7 +48,7 @@ function HouseRent() {
           {" "}
           <Card>
             <Card.Body>
-              <Card.Title>召募室友，採光大雅房，可養貓，可開伙</Card.Title>
+              <Card.Title>招募室友，採光大雅房，可養貓，可開伙</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">
                 頂溪捷運站，生活機能佳
               </Card.Subtitle>
