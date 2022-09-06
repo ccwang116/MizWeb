@@ -9,22 +9,19 @@ import RxjsWithPokemon from "./components/RxjsWithPokemon";
 
 import NotFoundPage from "./pages/NotFoundPage";
 import UserForm from "./components/UserForm";
-import HouseRent from "./components/HouseRent";
 import ScrollAnime from "./pages/ScrollAnime";
 import DemoMention from "./pages/DemoMention";
 import SongCh from "./pages/SongCh";
-import MyNavbarForRent from "./components/MyNavbarForRent";
 
 function App(props) {
   return (
     <Router>
       <>
-        {/* <MyNavbar /> */}
-        <MyNavbarForRent />
+        <MyNavbar />
         <MainContent>
           <Switch>
             <Route exact path="/">
-              <HouseRent />
+              <UserForm />
             </Route>
             <Route exact path="/about">
               <About />
