@@ -5,9 +5,7 @@ function MyFooter(props) {
     <>
       <footer className="text-muted py-5 d-flex justify-content-center text-center">
         <div className="container">
-          <p className="mb-1">
-            Copyright © About Our House ‧ Powered by CCWang
-          </p>
+          <p className="mb-1">Copyright © CCWang ‧ Powered by CCWang</p>
         </div>
       </footer>
     </>

@@ -12,18 +12,22 @@ import UserForm from "./components/UserForm";
 import ScrollAnime from "./pages/ScrollAnime";
 import DemoMention from "./pages/DemoMention";
 import SongCh from "./pages/SongCh";
+import Poker from "./pages/Poker";
+import MyNavbarForRent from "./components/MyNavbarForRent";
 
 function App(props) {
   return (
     <Router>
       <>
-        <MyNavbar />
+        {/* <MyNavbar /> */}
+        <MyNavbarForRent />
         <MainContent>
           <Switch>
             <Route exact path="/">
-              <UserForm />
+              {/* <UserForm /> */}
+              <Poker />
             </Route>
-            <Route exact path="/about">
+            {/* <Route exact path="/about">
               <About />
             </Route>
             <Route exact path="/scroll">
@@ -38,6 +42,9 @@ function App(props) {
             <Route exact path="/songch">
               <SongCh />
             </Route>
+            <Route exact path="/poker">
+              <Poker />
+            </Route> */}
             <Route exact path="*">
               <NotFoundPage />
             </Route>

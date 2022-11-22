@@ -17,7 +17,7 @@ function MyNavbar() {
               variant="dark"
               expand="lg"
             >
-              <Navbar.Brand href="/">About Our House</Navbar.Brand>
+              <Navbar.Brand href="/">CCWang</Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="">
