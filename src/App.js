@@ -12,8 +12,10 @@ import UserForm from "./components/UserForm";
 import ScrollAnime from "./pages/ScrollAnime";
 import DemoMention from "./pages/DemoMention";
 import SongCh from "./pages/SongCh";
-import Poker from "./pages/Poker";
+import Home from "./pages/Home";
+import Poker from "./pages/Quiz/Poker";
 import MyNavbarForRent from "./components/MyNavbarForRent";
+import QuizLayout from "./layouts/QuizLayout";
 
 function App(props) {
   return (
@@ -24,8 +26,10 @@ function App(props) {
         <MainContent>
           <Switch>
             <Route exact path="/">
-              {/* <UserForm /> */}
-              <Poker />
+              <Home />
+            </Route>
+            <Route path="/quiz">
+              <QuizLayout />
             </Route>
             {/* <Route exact path="/about">
               <About />
