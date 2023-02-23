@@ -7,8 +7,14 @@ function WaysToClimb() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    console.log(result);
+    let inputNum = +field;
+    let dp = new Array(20);
+    function Climb(n) {
+      if (n <= 2) return n;
+      dp[n] = Climb(n - 1) + Climb(n - 2);
+      return dp[n];
+    }
+    setResult(Climb(inputNum));
   };
   return (
     <>
