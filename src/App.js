@@ -16,6 +16,7 @@ import Home from "./pages/Home";
 import Poker from "./pages/Quiz/Poker";
 import MyNavbarForRent from "./components/MyNavbarForRent";
 import QuizLayout from "./layouts/QuizLayout";
+import MonitorTest from "./pages/MonitorTest";
 
 function App(props) {
   return (
@@ -30,6 +31,9 @@ function App(props) {
             </Route>
             <Route path="/quiz">
               <QuizLayout />
+            </Route>
+            <Route path="/monitortest">
+              <MonitorTest />
             </Route>
             {/* <Route exact path="/about">
               <About />
