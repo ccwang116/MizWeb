@@ -90,7 +90,7 @@ function MonitorTest() {
   };
   function openNewWindow() {
     window.open(
-      `https://mizwebsite.netlify.app${location.pathname}`,
+      `${location.pathname}`,
       "_blank",
       "toolbar=yes,scrollbars=yes,resizable=yes,top=0,left=0,width=1200,height=600"
     );
