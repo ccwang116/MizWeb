@@ -61,6 +61,12 @@ function MonitorTest() {
       setFullscreenId(displayList[index + 1]);
     }
   };
+  const handleClick = (id) => {
+    if (displayList.findIndex((e) => e === id) !== -1) {
+      setIndex(displayList.findIndex((e) => e === id));
+    }
+    setFullscreenId(id);
+  };
   const handleChange = (id, checked) => {
     const defectiveList = [2, 3, 4, 5, 6];
     if (id === 2) {
@@ -205,9 +211,10 @@ function MonitorTest() {
                       <li
                         className={` ${
                           index === idx && "active"
-                        } nav-item dropdown-item`}
+                        } nav-item dropdown-item btn`}
+                        onClick={() => handleClick(num)}
                       >
-                        {buttonList.find((e) => num === e.id).title}
+                        {num + "." + buttonList.find((e) => num === e.id).title}
                       </li>
                     ))}
                   </ul>
@@ -240,7 +247,7 @@ function MonitorTest() {
                   style={{ maxWidth: "24rem", right: "100px", bottom: "250px" }}
                 >
                   <div className="card-body text-primary">
-                    <h5 className="card-title">{test.title}</h5>
+                    <h5 className="card-title">{test.id + "." + test.title}</h5>
                     <p className="card-text">
                       Some quick example text to build on the card title and
                       make up the bulk of the card's content.
