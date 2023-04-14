@@ -24,6 +24,9 @@ function MyNavbar() {
                   <Nav.Link as={NavLink} to="/" exact>
                     Home
                   </Nav.Link>
+                  <Nav.Link as={NavLink} to="/quiz" exact>
+                    Quiz
+                  </Nav.Link>
                   <Nav.Link as={NavLink} to="/monitortest" exact>
                     Monitor Test
                   </Nav.Link>
